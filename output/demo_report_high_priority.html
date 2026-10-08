@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>POPS · High-criticality anomalies</title>
+<style>:root{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#19343f;background:#f4f7f8;font-synthesis:none;--ink:#19343f;--navy:#102c3a;--teal:#007f76;--muted:#617782;--line:#dce6e9}
+*{box-sizing:border-box}body{margin:0;font-size:13px;line-height:1.5}button,input,select,textarea{font:inherit;color:inherit}button,select,summary{cursor:pointer}button:disabled{opacity:.4;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid #00998b;outline-offset:3px}button{transition:background-color .12s}button:hover:not(:disabled){filter:brightness(.96)}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:fixed;left:18px;top:-90px;background:white;color:var(--teal);padding:12px;z-index:5;border-radius:6px}.skip-link:focus{top:10px}
+.masthead{background:var(--navy);color:#fff;min-height:88px;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:3px solid #008a80}.heading{display:flex;gap:22px;align-items:center;flex-wrap:wrap}.brand{font-size:17px;font-weight:800;letter-spacing:2px;border-right:1px solid #49616c;padding-right:23px}h1{font-size:21px;line-height:1.25;font-weight:620;letter-spacing:-.35px;margin:0}.demo-badge{font-size:10px;font-weight:600;letter-spacing:.1px;border-radius:4px;color:#ffdf9c;background:#ffffff13;padding:3px 7px}.button{border:1px solid transparent;border-radius:6px;padding:9px 14px;min-height:36px;font-size:12px;font-weight:600;white-space:nowrap}.primary{background:#fff;color:var(--navy)}.primary span{margin-left:7px;color:var(--teal)}.secondary{background:#fff;border-color:var(--line)}.compact{padding:5px 11px;min-height:31px}.text-button{padding:3px 0;min-height:28px;border:0;background:transparent;color:var(--teal);font-size:11px;font-weight:600;text-align:left}.text-button:hover{text-decoration:underline}
+main{max-width:1720px;margin:auto;padding:24px 32px}.findings{background:#fff;border:1px solid var(--line);border-radius:9px;overflow:hidden;box-shadow:0 3px 16px #102c3a05}.filter-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.25fr 1.15fr;gap:14px;padding:19px 20px 0}.filter-grid label{display:flex;flex-direction:column;gap:5px;min-width:0}.filter-grid label>span{font-size:10px;font-weight:600;color:var(--muted)}input,select,textarea{width:100%;min-width:0;background:#fff;border:1px solid #cfdee2;border-radius:5px;padding:8px 9px;min-height:36px;font-size:12px}input::placeholder,textarea::placeholder{color:#7e919b}.results-toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:13px 20px 11px;font-size:11px;color:var(--muted)}p{margin:0}.results-toolbar strong{color:var(--ink);font-weight:650}.table-scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;table-layout:fixed;min-width:810px;text-align:left}th{background:#f6f9fa;text-transform:uppercase;letter-spacing:.6px;font-size:9px;color:var(--muted);padding:11px 15px;border-block:1px solid var(--line);font-weight:700}th:nth-child(1){width:12%}th:nth-child(2){width:19%}th:nth-child(4){width:180px}th:nth-child(5){width:80px}td{padding:13px 15px;border-bottom:1px solid #e8eef0;vertical-align:top;overflow-wrap:anywhere}.finding-row:hover{background:#fbfdfd}.finding-row.expanded{background:#f5faf8}.country-name,.sheet-name{font-weight:600;font-size:12px}.secondary-text{font-size:11px;line-height:1.55;color:var(--muted);margin-top:3px}.finding-title{font-size:12px;font-weight:650;line-height:1.45;margin-bottom:3px}.finding-message{font-size:11px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.category{font-size:9px;color:#58747e;margin-top:6px}.critical{display:inline-flex;background:#f9e4e7;color:#a12643;font-size:9px;font-weight:700;padding:2px 5px;margin-right:7px;border-radius:3px;vertical-align:middle}.review-select{padding:7px 6px;min-height:32px;font-size:11px;background:#f7f9fa;color:#536c77}.review-select.accepted{background:#edf7f2;color:#246a53;border-color:#cbe4d8}.review-select.investigating{background:#fff7e5;color:#795613;border-color:#ebd6a6}.review-select.needs_correction{background:#fff0ed;color:#9a3931;border-color:#eccbc4}.notes-indicator{font-size:9px;color:var(--teal);margin-top:5px}.detail-toggle{font-size:10px;min-height:32px;white-space:nowrap}.detail-toggle[aria-expanded=true]{color:#415e68}.detail-row>td{padding:0;border-bottom:1px solid #cbdedc;background:#f8fbfa}.detail-panel{padding:17px 20px;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(240px,1fr);gap:25px}.detail-description{font-size:12px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere;margin-bottom:13px}.evidence-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.evidence{border:1px solid var(--line);border-radius:5px;background:#fff;padding:10px 12px;min-width:0}.evidence h2{font-size:10px;letter-spacing:.2px;margin:0 0 8px;color:var(--muted);font-weight:650}.evidence.after{border-top:2px solid #85b7a9;padding-top:9px}.address{display:block;color:var(--ink);font-size:11px;margin-top:2px;font-weight:600}.evidence-value,.formula{white-space:pre-wrap;overflow-wrap:anywhere;font:11px/1.6 Consolas,"SFMono-Regular",monospace;margin:0}.formula{border-top:1px solid #edf1f2;margin-top:8px;padding-top:7px;color:#58727d}.files{font-size:10px;color:var(--muted);line-height:1.8;margin-top:11px;overflow-wrap:anywhere}.finding-id{font-size:9px;color:#708992;margin-top:5px;overflow-wrap:anywhere}.notes-label{display:block;font-size:11px;font-weight:650;margin-bottom:7px}.review-notes{min-height:107px;resize:vertical;line-height:1.6;font-size:12px}.save-state{font-size:10px;color:var(--muted);min-height:15px;margin-top:5px}.empty-state{padding:46px 20px;text-align:center;color:var(--muted);font-size:12px}.empty-state strong{display:block;font-size:16px;color:var(--ink);margin-bottom:6px}.pagination{padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:10px;border-top:1px solid var(--line)}.pagination>div{display:flex;align-items:center;gap:7px}.pagination label{display:flex;align-items:center;gap:8px;margin-right:8px}.pagination select{width:60px;min-height:31px;padding:5px;font-size:10px}footer{display:flex;justify-content:space-between;align-items:start;gap:20px;padding:14px 0;color:var(--muted);font-size:10px}footer>div{display:flex;flex-wrap:wrap;gap:20px}footer p{padding-top:5px}.storage-notice{background:#fff5df;border:1px solid #e7d9b6;border-radius:6px;color:#765823;font-size:11px;padding:11px 15px;margin-bottom:15px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 18px;border-radius:7px;font-size:12px;box-shadow:0 4px 20px #102c3a30;max-width:min(670px,90vw);z-index:4}.toast.error{background:#913b3b}.noscript{padding:25px;background:#fff3d8;margin:25px;border-radius:6px}
+.table-scroll{position:relative}
+@media(min-width:1450px){th:nth-child(4){width:195px}th:nth-child(5){width:90px}.filter-grid{grid-template-columns:1.8fr 1fr 1fr 1.2fr 1fr}}
+@media(max-width:1100px){.filter-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.search-filter{grid-column:span 2}main{padding:20px}.masthead{padding:19px 20px}footer{flex-direction:column;gap:6px}.detail-panel{gap:18px}.heading{gap:15px}h1{font-size:19px}.brand{padding-right:16px}}
+@media(max-width:650px){.masthead{align-items:flex-start;flex-wrap:wrap;padding:18px 16px;gap:14px}.heading{gap:12px}h1{font-size:18px}.brand{font-size:14px;padding-right:12px;letter-spacing:1.5px}.masthead .button{font-size:11px;padding:7px 11px;min-height:33px}main{padding:16px 12px}.filter-grid{grid-template-columns:1fr 1fr;padding:15px 14px 0;gap:10px}.search-filter{grid-column:1/-1}.results-toolbar{padding:12px 14px;font-size:10px}.pagination{padding:11px 14px;flex-wrap:wrap}footer>div{gap:17px}.findings{border-radius:7px}.detail-panel{grid-template-columns:1fr;padding:15px}.evidence-grid{gap:8px}.toast{font-size:11px}}
+@media print{@page{size:landscape;margin:12mm}body{background:#fff}.masthead{background:#fff;color:var(--navy);padding:0 0 14px;min-height:0}.brand{border-color:var(--line)}main{padding:15px 0;max-width:none}.masthead .button,.filter-grid,.results-toolbar button,.pagination,footer,.toast,.storage-notice,.skip-link{display:none!important}.findings{box-shadow:none}.table-scroll{overflow:visible}table{min-width:0}th,td{padding:8px}th:nth-child(4){width:140px}th:last-child,td:last-child:not([colspan]){display:none}.finding-message{display:block}.review-select{appearance:none;border:0;background:transparent;padding:0;font-size:10px}tr{break-inside:avoid}.detail-row[hidden]{display:none!important}.detail-panel{grid-template-columns:1.5fr 1fr}.review-notes{border:0;resize:none}thead{display:table-header-group}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to anomalies</a>
+<header class="masthead">
+  <div class="heading"><span class="brand">POPS</span><h1>High-criticality anomalies</h1><span id="demo-badge" class="demo-badge" hidden>Example data</span></div>
+  <button id="save-report" class="button primary" type="button">Save reviewed report <span aria-hidden="true">↓</span></button>
+</header>
+<main id="main-content" tabindex="-1">
+  <div id="storage-notice" class="storage-notice" role="status" hidden></div>
+  <section class="findings" aria-label="High-criticality anomalies to review">
+    <div class="filter-grid" role="search" aria-label="Filter anomalies">
+      <label class="search-filter" for="finding-search"><span>Search</span><input id="finding-search" type="search" placeholder="KPI, cell, anomaly or note…" autocomplete="off"></label>
+      <label for="filter-country"><span>Country</span><select id="filter-country"></select></label>
+      <label for="filter-sheet"><span>Sheet</span><select id="filter-sheet"></select></label>
+      <label for="filter-category"><span>Category</span><select id="filter-category"></select></label>
+      <label for="filter-status"><span>Review status</span><select id="filter-status"></select></label>
+    </div>
+    <div class="results-toolbar"><p id="results-summary" role="status" aria-live="polite"></p><button id="reset-filters" class="text-button" type="button">Clear filters</button></div>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Anomaly table">
+      <table><caption class="sr-only">High and critical anomalies with review decisions</caption><thead><tr><th scope="col">Country</th><th scope="col">Sheet / KPI</th><th scope="col">Anomaly</th><th scope="col">Review status</th><th scope="col"><span class="sr-only">Evidence and notes</span></th></tr></thead><tbody id="findings-body"></tbody></table>
+    </div>
+    <div id="findings-empty" class="empty-state" hidden></div>
+    <div class="pagination"><span id="page-summary"></span><div><label for="page-size">Rows <select id="page-size"><option>25</option><option selected>50</option><option>100</option></select></label><button id="previous-page" class="button secondary compact" type="button" aria-label="Previous page">←</button><button id="next-page" class="button secondary compact" type="button" aria-label="Next page">→</button></div></div>
+  </section>
+  <footer><p id="review-storage-state"></p><div><button id="reviews-export" class="text-button" type="button">Export reviews JSON</button><button id="reviews-import" class="text-button" type="button">Import reviews JSON</button></div></footer>
+</main>
+<input id="reviews-file" type="file" accept="application/json,.json" hidden>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<noscript><p class="noscript">Enable JavaScript to display this offline report and its review controls. No network access is required.</p></noscript>
+<script id="report-payload" type="application/json">{"schema_version":1,"report_id":"pops-anomaly-demo-v1","generated_at":"2026-10-08T22:23:16.808706+00:00","demo":true,"title":"POPS · High-criticality anomalies","report_view":"high_criticality","anomalies":[{"country_id":"6b370d4ea8909ece3c90ad73","country":"Belgium","workbook":"Belgium.xlsx","sheet":"NPL SALES","category":"SHEET_MISSING","category_label":"Sheet removed","severity":"high","title":"Sheet removed","message":"A sheet present in the sent workbook is absent from the received workbook.","kpi":"","column":"","sent_cell":"","received_cell":"","before":null,"after":null,"status":"unreviewed","id":"b9376a8a065d31c54657f28b"}],"countries":[{"id":"6b370d4ea8909ece3c90ad73","name":"Belgium","file_key":"belgium.xlsx","sent_file":"Belgium.xlsx","received_file":"Belgium.xlsx"}],"initial_reviews":[]}</script>
+<script>(() => {
+  "use strict";
+  // Saved HTML starts from this pristine shell, never from rendered rows or notes.
+  const documentTemplate = document.documentElement.cloneNode(true);
+  const payload = JSON.parse(document.getElementById("report-payload").textContent);
+  const list = value => Array.isArray(value) ? value : [];
+  const text = value => value === null || value === undefined ? "" : String(value);
+  const humanize = value => text(value).replace(/[_-]+/g, " ").replace(/^./, letter => letter.toUpperCase());
+  const $ = id => document.getElementById(id);
+  const anomalies = list(payload.anomalies).filter(item => !item.baseline && ["high", "critical"].includes(item.severity));
+  const countries = new Map(list(payload.countries).map(country => [String(country.id), country]));
+  const anomalyById = new Map(anomalies.map(anomaly => [String(anomaly.id), anomaly]));
+  const rowIndex = new Map(anomalies.map((anomaly, index) => [String(anomaly.id), index]));
+  const statuses = {unreviewed: "Unreviewed", accepted: "Accepted", investigating: "Needs investigation", needs_correction: "Needs correction"};
+  const statusKeys = new Set(Object.keys(statuses));
+  const STORAGE_KEY = "pops-audit-reviews:v1";
+  const reviews = new Map();
+  const expanded = new Set();
+  const state = {country: countries.has(String(payload.initial_country)) ? String(payload.initial_country) : "", sheet: "", category: "", status: "", search: "", page: 1, pageSize: 50};
+  let storageAvailable = true;
+  let toastTimer;
+
+  function el(tag, attributes, ...children) {
+    const element = document.createElement(tag);
+    for (const [key, value] of Object.entries(attributes || {})) {
+      if (value === undefined || value === null || value === false) continue;
+      if (key === "class") element.className = value;
+      else if (key.startsWith("on") && typeof value === "function") element.addEventListener(key.slice(2).toLowerCase(), value);
+      else if (["value", "disabled", "selected", "checked"].includes(key)) element[key] = value;
+      else element.setAttribute(key, value === true ? "" : String(value));
+    }
+    for (const child of children.flat(Infinity)) {
+      if (child === undefined || child === null || child === false) continue;
+      element.append(child instanceof Node ? child : document.createTextNode(String(child)));
+    }
+    return element;
+  }
+  function replace(id, ...children) { $(id).replaceChildren(...children.flat(Infinity)); }
+  function toast(message, error = false) {
+    clearTimeout(toastTimer);
+    $("toast").textContent = message;
+    $("toast").className = "toast" + (error ? " error" : "");
+    $("toast").hidden = false;
+    toastTimer = setTimeout(() => { $("toast").hidden = true; }, 5500);
+  }
+  function reviewFor(anomaly) {
+    return reviews.get(String(anomaly.id)) || {anomaly_id: String(anomaly.id), status: statusKeys.has(anomaly.status) ? anomaly.status : "unreviewed", notes: "", updated_at: ""};
+  }
+  function validReview(record) {
+    if (!record || typeof record !== "object" || typeof record.anomaly_id !== "string" || record.anomaly_id.length > 512 || !statusKeys.has(record.status)) return null;
+    if (typeof record.notes !== "string" || record.notes.length > 10000) return null;
+    const stamp = typeof record.updated_at === "string" && Number.isFinite(Date.parse(record.updated_at)) ? new Date(record.updated_at).toISOString() : "";
+    return {anomaly_id: record.anomaly_id, status: record.status, notes: record.notes, updated_at: stamp};
+  }
+  function reviewRecords(value) { return Array.isArray(value) ? value : value && Array.isArray(value.reviews) ? value.reviews : []; }
+  function mergeReviews(records, onlyCurrent = false) {
+    let matched = 0, ignored = 0;
+    for (const raw of records) {
+      const record = validReview(raw);
+      if (!record || (onlyCurrent && !anomalyById.has(record.anomaly_id))) { ignored++; continue; }
+      const previous = reviews.get(record.anomaly_id);
+      if (!previous || (Date.parse(record.updated_at) || 0) > (Date.parse(previous.updated_at) || 0)) reviews.set(record.anomaly_id, record);
+      if (anomalyById.has(record.anomaly_id)) matched++;
+    }
+    return {matched, ignored};
+  }
+  function showStorageState() {
+    $("storage-notice").hidden = storageAvailable;
+    $("storage-notice").textContent = "This browser cannot save reviews locally. Use “Save reviewed report” or “Export reviews JSON” to keep your decisions and notes.";
+    $("review-storage-state").textContent = storageAvailable
+      ? "Decisions save in this browser. Save a reviewed report to carry them with the file."
+      : "Decisions are held in this open tab. Save a reviewed report to keep them.";
+  }
+  function readStoredReviews() {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        // Do not replace an unreadable or unknown storage format with a partial review.
+        if (!Array.isArray(parsed) && (!parsed || parsed.schema_version !== 1 || !Array.isArray(parsed.reviews))) throw new Error("Unknown review storage format");
+        mergeReviews(reviewRecords(parsed));
+      }
+      return true;
+    } catch (_) { storageAvailable = false; return false; }
+  }
+  function persistReviews() {
+    // Re-read before every write: a filtered report must retain other reports' reviews,
+    // including decisions saved in another tab since this report was opened.
+    if (readStoredReviews()) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({schema_version: 1, reviews: [...reviews.values()]}));
+        storageAvailable = true;
+      } catch (_) { storageAvailable = false; }
+    }
+    showStorageState();
+  }
+  function savedLabel(review) {
+    if (!review.updated_at) return "Notes and decisions save automatically.";
+    const date = new Date(review.updated_at);
+    return (storageAvailable ? "Saved in this browser · " : "Saved in this tab · ") + date.toLocaleString(undefined, {month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"});
+  }
+  function saveReview(anomaly, changes, redraw = true) {
+    readStoredReviews();
+    const previous = reviewFor(anomaly);
+    // Keep a deliberate new decision newer even if an imported clock was ahead.
+    const timestamp = new Date(Math.max(Date.now(), (Date.parse(previous.updated_at) || 0) + 1)).toISOString();
+    const updated = {...previous, ...changes, anomaly_id: String(anomaly.id), updated_at: timestamp};
+    reviews.set(updated.anomaly_id, updated);
+    persistReviews();
+    if (redraw) renderFindings();
+    else {
+      const index = rowIndex.get(String(anomaly.id));
+      const noteIndicator = $("notes-indicator-" + index);
+      if (noteIndicator) noteIndicator.hidden = !updated.notes;
+      const saved = $("saved-" + index);
+      if (saved) saved.textContent = savedLabel(updated);
+    }
+  }
+
+  function countryName(anomaly) { return anomaly.country || countries.get(String(anomaly.country_id))?.name || "Not specified"; }
+  function options(id, values, allLabel, selected) {
+    const entries = [...values.entries()].sort((a, b) => text(a[1]).localeCompare(text(b[1])));
+    replace(id, el("option", {value: ""}, allLabel), entries.map(([value, label]) => el("option", {value}, label)));
+    $(id).value = values.has(selected) ? selected : "";
+    return $(id).value;
+  }
+  function renderFilters() {
+    const countryOptions = new Map(anomalies.map(anomaly => [String(anomaly.country_id), countryName(anomaly)]));
+    state.country = options("filter-country", countryOptions, "All countries", state.country);
+    const selected = state.country ? anomalies.filter(anomaly => String(anomaly.country_id) === state.country) : anomalies;
+    state.sheet = options("filter-sheet", new Map(selected.filter(item => item.sheet).map(item => [item.sheet, item.sheet])), "All sheets", state.sheet);
+    state.category = options("filter-category", new Map(selected.filter(item => item.category).map(item => [item.category, item.category_label || humanize(item.category)])), "All categories", state.category);
+    replace("filter-status", el("option", {value: ""}, "All statuses"), Object.entries(statuses).map(([value, label]) => el("option", {value}, label)));
+    $("filter-status").value = state.status;
+    $("finding-search").value = state.search;
+  }
+  function filteredFindings() {
+    const query = state.search.trim().toLocaleLowerCase();
+    return anomalies.filter(anomaly => {
+      if (state.country && String(anomaly.country_id) !== state.country) return false;
+      if (state.sheet && anomaly.sheet !== state.sheet) return false;
+      if (state.category && anomaly.category !== state.category) return false;
+      const review = reviewFor(anomaly);
+      if (state.status && review.status !== state.status) return false;
+      if (!query) return true;
+      return [countryName(anomaly), anomaly.workbook, anomaly.sheet, anomaly.kpi, anomaly.column, anomaly.title, anomaly.message, anomaly.category, anomaly.category_label, anomaly.sent_cell, anomaly.received_cell, JSON.stringify(anomaly.before), JSON.stringify(anomaly.after), review.notes].some(value => text(value).toLocaleLowerCase().includes(query));
+    }).sort((a, b) => Number(b.severity === "critical") - Number(a.severity === "critical") || text(countryName(a)).localeCompare(text(countryName(b))) || text(a.sheet).localeCompare(text(b.sheet)) || text(a.id).localeCompare(text(b.id)));
+  }
+  function rawValue(cell) {
+    if (!cell) return "No cell to compare";
+    if (cell.formula && cell.cache_available === false) return "Unknown · saved result unavailable";
+    if (cell.value === undefined || cell.value === null || cell.value === "") return "Blank";
+    if (typeof cell.value === "boolean") return cell.value ? "TRUE" : "FALSE";
+    return text(cell.value);
+  }
+  function evidence(label, address, cell, after = false) {
+    return el("section", {class: "evidence" + (after ? " after" : "")},
+      el("h2", {}, label, el("span", {class: "address"}, address || "No cell location")),
+      el("p", {class: "evidence-value"}, rawValue(cell)),
+      cell && cell.formula ? el("pre", {class: "formula"}, cell.formula) : null);
+  }
+  function detailsRow(anomaly, index, isExpanded) {
+    const review = reviewFor(anomaly);
+    const country = countries.get(String(anomaly.country_id)) || {};
+    const notes = el("textarea", {id: "notes-" + index, class: "review-notes", rows: "4", maxlength: "10000", placeholder: "Context, reason for acceptance, or next action…", oninput: event => saveReview(anomaly, {notes: event.target.value}, false)});
+    notes.value = review.notes;
+    return el("tr", {id: "detail-" + index, class: "detail-row", hidden: !isExpanded}, el("td", {colspan: "5"},
+      el("div", {class: "detail-panel"},
+        el("div", {},
+          anomaly.message ? el("p", {class: "detail-description"}, anomaly.message) : null,
+          el("div", {class: "evidence-grid"}, evidence("Sent · before", anomaly.sent_cell, anomaly.before), evidence("Received · after", anomaly.received_cell, anomaly.after, true)),
+          el("div", {class: "files"},
+            country.sent_file ? el("div", {}, "Sent file: ", country.sent_file) : null,
+            country.received_file ? el("div", {}, "Received file: ", country.received_file) : null,
+            !country.sent_file && !country.received_file && anomaly.workbook ? el("div", {}, "Workbook: ", anomaly.workbook) : null),
+          el("p", {class: "finding-id"}, "Finding ID: ", anomaly.id)),
+        el("div", {}, el("label", {class: "notes-label", for: "notes-" + index}, "Review notes"), notes, el("p", {id: "saved-" + index, class: "save-state"}, savedLabel(review))))));
+  }
+  function findingRows(anomaly) {
+    const index = rowIndex.get(String(anomaly.id));
+    const review = reviewFor(anomaly);
+    const isExpanded = expanded.has(String(anomaly.id));
+    const status = el("select", {id: "status-" + index, class: "review-select " + review.status, "aria-label": `Review status for ${countryName(anomaly)}: ${anomaly.title || anomaly.kpi || anomaly.id}`, onchange: event => saveReview(anomaly, {status: event.target.value})}, Object.entries(statuses).map(([key, label]) => el("option", {value: key}, label)));
+    status.value = review.status;
+    const toggle = el("button", {id: "toggle-" + index, type: "button", class: "text-button detail-toggle", "aria-expanded": String(isExpanded), "aria-controls": "detail-" + index, "aria-label": `Evidence and notes for ${anomaly.title || anomaly.id}`, onclick: event => {
+      const id = String(anomaly.id);
+      if (expanded.has(id)) expanded.delete(id); else expanded.add(id);
+      const open = expanded.has(id);
+      $("detail-" + index).hidden = !open;
+      $("row-" + index).classList.toggle("expanded", open);
+      event.currentTarget.setAttribute("aria-expanded", String(open));
+      event.currentTarget.textContent = open ? "Close ↑" : "Details ↓";
+    }}, isExpanded ? "Close ↑" : "Details ↓");
+    return [el("tr", {id: "row-" + index, class: "finding-row" + (isExpanded ? " expanded" : "")},
+      el("td", {}, el("div", {class: "country-name"}, countryName(anomaly))),
+      el("td", {}, el("div", {class: "sheet-name"}, anomaly.sheet || "Workbook"), anomaly.kpi ? el("div", {class: "secondary-text"}, anomaly.kpi) : null,
+        anomaly.column ? el("div", {class: "secondary-text"}, "Column: ", anomaly.column) : null),
+      el("td", {}, el("div", {class: "finding-title"}, anomaly.severity === "critical" ? el("span", {class: "critical"}, "Critical") : null, anomaly.title || anomaly.category_label || humanize(anomaly.category)),
+        el("div", {class: "finding-message"}, anomaly.message || ""),
+        anomaly.title && anomaly.title !== (anomaly.category_label || humanize(anomaly.category)) ? el("div", {class: "category"}, anomaly.category_label || humanize(anomaly.category)) : null),
+      el("td", {}, status, el("div", {id: "notes-indicator-" + index, class: "notes-indicator", hidden: !review.notes}, "Note added")),
+      el("td", {}, toggle)), detailsRow(anomaly, index, isExpanded)];
+  }
+  function renderFindings() {
+    const focused = document.activeElement;
+    const focusedId = focused?.id;
+    const selection = focused?.tagName === "TEXTAREA" ? [focused.selectionStart, focused.selectionEnd] : null;
+    const records = filteredFindings();
+    const pages = Math.max(1, Math.ceil(records.length / state.pageSize));
+    state.page = Math.min(state.page, pages);
+    const offset = (state.page - 1) * state.pageSize;
+    replace("results-summary", el("strong", {}, records.length.toLocaleString()), ` of ${anomalies.length.toLocaleString()} high-criticality anomalies`);
+    replace("findings-body", records.slice(offset, offset + state.pageSize).flatMap(findingRows));
+    $("findings-empty").hidden = records.length > 0;
+    replace("findings-empty", el("strong", {}, anomalies.length ? "No matching anomalies" : "No high-criticality anomalies"), el("p", {}, anomalies.length ? "Change or clear the filters to see more findings." : "This audit has no high or critical findings to review."));
+    $("page-summary").textContent = records.length ? `${(offset + 1).toLocaleString()}–${Math.min(offset + state.pageSize, records.length).toLocaleString()} of ${records.length.toLocaleString()}` : "0 anomalies";
+    $("previous-page").disabled = state.page <= 1;
+    $("next-page").disabled = state.page >= pages;
+    if (focusedId && focused !== document.activeElement) {
+      const target = $(focusedId) || $("filter-status");
+      target.focus({preventScroll: true});
+      if (selection && target.tagName === "TEXTAREA") target.setSelectionRange(...selection);
+    }
+  }
+
+  function currentReviews() { return [...reviews.values()].filter(review => anomalyById.has(review.anomaly_id)); }
+  function download(content, mime, name) {
+    const url = URL.createObjectURL(new Blob([content], {type: mime}));
+    const anchor = el("a", {href: url, download: name});
+    document.body.append(anchor); anchor.click(); anchor.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
+  }
+  function safeJSON(value) {
+    return JSON.stringify(value).replace(/&/g, "\\u0026").replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/\u2028/g, "\\u2028").replace(/\u2029/g, "\\u2029");
+  }
+  function safeFilename(value) { return text(value).replace(/[<>:"/\\|?*\u0000-\u001f]/g, "_").slice(0, 120) || "pops-high-priority"; }
+  function saveReviewedReport() {
+    readStoredReviews(); showStorageState();
+    const report = {...payload, initial_reviews: currentReviews()};
+    const clone = documentTemplate.cloneNode(true);
+    clone.querySelector("#report-payload").textContent = safeJSON(report);
+    download("<!doctype html>\n" + clone.outerHTML, "text/html;charset=utf-8", safeFilename(payload.title || "POPS high-criticality anomalies") + " - reviewed.html");
+    toast("Reviewed report saved with all high-criticality findings, decisions and notes.");
+  }
+  async function importReviews(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    try {
+      if (file.size > 10 * 1024 * 1024) throw new Error("Review files must be smaller than 10 MB.");
+      const imported = JSON.parse(await file.text());
+      if (!imported || imported.schema_version !== 1 || !Array.isArray(imported.reviews)) throw new Error("Choose a POPS review JSON file with schema_version 1 and a reviews list.");
+      readStoredReviews();
+      const result = mergeReviews(imported.reviews, true);
+      persistReviews(); renderFindings();
+      toast(`${result.matched.toLocaleString()} matching review record(s) loaded; ${result.ignored.toLocaleString()} unmatched or invalid record(s) ignored. Newer decisions are kept.`);
+    } catch (error) { toast("Could not import reviews: " + error.message, true); }
+    finally { event.target.value = ""; }
+  }
+
+  mergeReviews(reviewRecords(payload.initial_reviews), true);
+  readStoredReviews(); showStorageState();
+  $("demo-badge").hidden = payload.demo !== true;
+  $("finding-search").addEventListener("input", event => { state.search = event.target.value; state.page = 1; renderFindings(); });
+  $("filter-country").addEventListener("change", event => { state.country = event.target.value; state.page = 1; renderFilters(); renderFindings(); });
+  for (const key of ["sheet", "category", "status"]) $("filter-" + key).addEventListener("change", event => { state[key] = event.target.value; state.page = 1; renderFindings(); });
+  $("reset-filters").addEventListener("click", () => { for (const key of ["country", "sheet", "category", "status", "search"]) state[key] = ""; state.page = 1; renderFilters(); renderFindings(); });
+  $("previous-page").addEventListener("click", () => { state.page--; renderFindings(); });
+  $("next-page").addEventListener("click", () => { state.page++; renderFindings(); });
+  $("page-size").addEventListener("change", event => { state.pageSize = Number(event.target.value); state.page = 1; renderFindings(); });
+  $("save-report").addEventListener("click", saveReviewedReport);
+  $("reviews-export").addEventListener("click", () => {
+    readStoredReviews(); showStorageState();
+    const bundle = {schema_version: 1, tool: "pops-audit-reviews", report_id: payload.report_id, exported_at: new Date().toISOString(), reviews: currentReviews()};
+    download(JSON.stringify(bundle, null, 2), "application/json;charset=utf-8", "pops-high-priority-review-decisions.json");
+    toast("Review decisions exported. Import this file into a full or focused POPS report with the same findings.");
+  });
+  $("reviews-import").addEventListener("click", () => $("reviews-file").click());
+  $("reviews-file").addEventListener("change", importReviews);
+  window.addEventListener("storage", event => {
+    if (event.key !== STORAGE_KEY || !event.newValue) return;
+    try { mergeReviews(reviewRecords(JSON.parse(event.newValue))); renderFindings(); } catch (_) { /* Leave this tab's decisions intact. */ }
+  });
+  renderFilters(); renderFindings();
+})();
+</script>
+</body>
+</html>

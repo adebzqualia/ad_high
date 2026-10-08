@@ -1,0 +1,57 @@
+# Edit the paths, selected sheets and column lists here. All paths are project-relative.
+# Unselected sheets still appear in added/removed-sheet inventory.
+# Overall filling uses selected business sheets; KPI filling is shown separately.
+version: 1
+sent_dir: data/sent
+received_dir: data/received
+output_report: output/report.html
+report_title: POPS workbook anomaly report
+catalog_file: config/catalog.yaml
+
+# Remove a name to stop detailed checks on that sheet.
+sheets_to_check:
+- ID Card
+- OBS KPI
+- FTE
+- CVC
+- GRANTING 2027-2030
+- CUSTOMER SERVICES 2027-2030
+- CORE 2027-2030
+- NPL SALES
+- KPI
+
+# Periods shared by every selected sheet except KPI.
+common_columns:
+- '2024'
+- '2025'
+- F1 2026
+- F2 2026
+- F3 2026
+- PLAN 2026
+- B 2027
+- B 2028
+- PLAN 2028
+- B 2029
+- B 2030
+- PLAN 2030
+
+# KPI periods have their own aliases in catalog.yaml (Actual / Forecast / Budget).
+kpi_columns:
+- '2024'
+- '2025'
+- F1 2026
+- F2 2026
+- F3 2026
+- PLAN 2026
+- B 2027
+- B 2028
+- PLAN 2028
+- B 2029
+- B 2030
+- PLAN 2030
+- Budget 2026
+
+# Changes to prefilled values in these periods are checked.
+historical_columns:
+- '2024'
+- '2025'

@@ -1,0 +1,313 @@
+# Ordered business KPI labels and sheet aliases. Usually this file needs no edits.
+# Repeated KPI labels are intentional: occurrence numbers are inferred from order.
+# KPI identifiers come from the sent workbook; no old KPI-name catalogue is used.
+# To audit an optional empty sheet, add its KPI labels here, then select it in settings.yaml.
+version: 1
+sheets:
+  ID Card:
+    aliases:
+    - ID_Card
+    kpis:
+    - OUTSTANDING - Av. (M€)
+    - o/w AUTO
+    - o/W B2C
+    - o/W B2B
+    - o/W Others (*)
+    - PRODUCTION (M€)
+    - o/w AUTO
+    - o/W B2C
+    - o/W B2B
+    - o/W Others (*)
+    - OPENED ACCOUNTS (nb)
+    - o/w AUTO
+    - o/W B2C
+    - o/W B2B
+    - o/W Others (*)
+    - ACTIVE ACCOUNTS - EoP (nb)
+    - o/w AUTO
+    - o/W B2C
+    - o/W B2B
+    - o/W Others (*)
+    - NBI (M€)
+    - NBI / Outstanding (%)
+    - OPEX (M€)
+    - OPEX / Outstanding (%)
+    - CoR (M€)
+    - CoR / Outstanding (%)
+    - NIBT (M€)
+    - Cost Income Ratio
+    - RONE (%)
+    - FTE - EoP
+    - CVC OPS Rebased - Cost Base Vision (**) (M€)
+    - CVC OPS 'Cost Base Vision' / Outstanding Av. (%)
+    - CVC OPS Rebased - P&L Vision (M€)
+    - CVC OPS 'P&L Vision' / Outstanding Av. (%)
+  OBS KPI:
+    aliases:
+    - OBS_KPI
+    kpis:
+    - Total CVC OPS Rebased - COST BASE VISION / Outstanding Av.
+    - Total NET SAVINGS KALYX (M€)
+    - CVC OPS SAVINGS (M€)
+    - REAL ESTATE SAVINGS (M€)
+    - PROCUREMENT SAVINGS (M€ VAT excl.)
+    - FTE BUY BPO + FTE SHARE SSC (EoP)
+    - 'Granting : Full End-to-End Automatic Granting Rate % (UW&Fin w/o Human intervention)'
+    - 'Granting : Full Expresso for B2C %'
+    - 'Customer Service : Selfcare rate % (New Definition)'
+    - 'Customer Service : Phone footprint Index (Agent Contact rate X Phone rate)'
+    - 'Collection : Digital Interactions % (only interactive channels)'
+    - 'Mobility : Ops Maturity Index'
+    - 'Granting: Global Productivity Index'
+    - 'Customer Service: Global Productivity Index'
+    - 'Collection: Global Productivity Index'
+    - GENESIS Index (%)
+    - GENESIS BEYOND - Nb AI Uses Cases (nb)
+    - OPERATIONAL RISK INCIDENT IMPACTS (*) (M€)
+    - DESK SHARING Ratio (%)
+  FTE:
+    kpis:
+    - GRANTING
+    - CUSTOMER SERVICE
+    - COLLECTION
+    - RECOVERY
+    - OTHER OPERATIONAL DPTS
+    - OPERATIONS SUPPORT
+    - TOTAL
+    - GRANTING
+    - CUSTOMER SERVICE
+    - COLLECTION
+    - RECOVERY
+    - OTHER OPERATIONAL DPTS
+    - OPERATIONS SUPPORT
+    - TOTAL
+    - GRANTING
+    - CUSTOMER SERVICE
+    - COLLECTION
+    - RECOVERY
+    - OTHER OPERATIONAL DPTS
+    - OPERATIONS SUPPORT
+    - TOTAL
+    - GRANTING
+    - CUSTOMER SERVICE
+    - COLLECTION
+    - RECOVERY
+    - OTHER OPERATIONAL DPTS
+    - OPERATIONS SUPPORT
+    - TOTAL FTE Av. OPERATIONS
+    - o/w Operational Functions
+    - GRANTING
+    - CUSTOMER SERVICE
+    - COLLECTION
+    - RECOVERY
+    - OTHER OPERATIONAL DPTS
+    - OPERATIONS SUPPORT
+    - TOTAL
+    - GRANTING
+    - CUSTOMER SERVICE
+    - COLLECTION
+    - RECOVERY
+    - OTHER OPERATIONAL DPTS
+    - OPERATIONS SUPPORT
+    - TOTAL
+    - GRANTING
+    - CUSTOMER SERVICE
+    - COLLECTION
+    - RECOVERY
+    - OTHER OPERATIONAL DPTS
+    - OPERATIONS SUPPORT
+    - TOTAL
+    - GRANTING
+    - CUSTOMER SERVICE
+    - COLLECTION
+    - RECOVERY
+    - OTHER OPERATIONAL DPTS
+    - OPERATIONS SUPPORT
+    - TOTAL
+    - GRANTING
+    - CUSTOMER SERVICE
+    - COLLECTION
+    - RECOVERY
+    - OTHER OPERATIONAL DPTS
+    - OPERATIONS SUPPORT
+    - TOTAL FTE Av. OPERATIONS
+    - o/w Operational Functions
+  CVC:
+    kpis:
+    - NBI (M€)
+    - OPEX (M€)
+    - CoR (M€)
+    - NIBT (M€)
+    - PRODUCTION (M€)
+    - OUTSTANDING - Avg (M€)
+    - CVC OPS 'Rebased' - COST BASE VISION / Oustand. Av.
+    - CVC OPS 'Rebased' - P&L VISION / Oustanding Av.
+    - GRANTING & FINANCING
+    - CUSTOMER SERVICE
+    - COLLECTION
+    - RECOVERY
+    - OTHER OPERATIONAL DPTS
+    - OPERATIONS SUPPORT
+    - TOTAL CVC OPS 'Rebased'
+    - o/w Operational departments
+    - Labor costs
+    - Call Center and SMS
+    - Postage
+    - Credit Bureau
+    - Database
+    - Logistic Outsourcing
+    - Business Outsourcing
+    - Consultancy fees (excl. IT)
+    - Litigation Fees
+    - Others
+    - Outsourcing fees (NBI Part)
+    - TOTAL CVC OPS 'Rebased'
+    - o/w Operational Functions
+    - o/w Support Functions
+    - CVC OPS 'Rebased' - COST BASE VISION
+    - OPEX transferred to NBI
+    - Depreciation in NBI
+    - TRANSACTION COSTS - Net Impact
+    - CVC OPS 'Rebased' - P&L VISION
+  GRANTING 2027-2030:
+    kpis:
+    - Opened accounts - AUTO (nb)
+    - Opened accounts - BtoC (nb)
+    - Opened accounts - B2B (nb)
+    - Opened accounts - Digital Bank (nb)
+    - Opened accounts - Cross Market (nb)
+    - Opened accounts - Non alloc. Market (nb)
+    - TOTAL Opened accounts (nb)
+    - Full End-to-End Automatic Granting Rate (%) (UW&Fin w/o Human intervention)
+    - Automatic Underwriting rate (%)
+    - Automatic Financing rate (%)
+    - Partner Contact rate
+    - Time of final decision bellow < 15' in B2C (%)
+    - Full Expresso for B2C
+    - Financed Leasing Mobility (%)
+    - Full Expresso for Mobility
+    - Partner Contact rate
+    - Granting & Financing VC OPEX (M€)
+    - Gr. OPEX / OPENED ACCOUNTS in nb (unit cost €)
+    - Number Incoming Files to Granting and to Financing Stages (monthly avg.)
+    - Granting Global Productivity Index
+    - Granting Human Productivity
+    - FTE M
+    - FTE B
+    - FTE S
+    - TOTAL FTE
+  CUSTOMER SERVICES 2027-2030:
+    kpis:
+    - Active accounts - AUTO (nb)
+    - Active accounts - BtoC (nb)
+    - Active accounts - B2B (nb)
+    - Active accounts - Digital Bank (nb)
+    - Active accounts - Cross Market (nb)
+    - Active accounts - Non allocated Market (nb)
+    - TOTAL Active accounts (nb)
+    - Selfcare rate (%) (New Definition)
+    - Contact rate (%)
+    - Phone footprint Index (Contact rate * Phone rate)
+    - Call Accessibility rate (%)
+    - Mobility - Leasing contracts closed in 90 days (%)
+    - KPI adoption Clever 1 - Rebound
+    - Customer Services VC OPEX (M€)
+    - Outstanding Av (M€)
+    - AS OPEX / OUTSTANDING (for 1000€)
+    - Active accounts - EoP (nb)
+    - AS OPEX / ACTIVE ACCOUNT in nb (unit cost €)
+    - Numbers of handled contacts in After-Sales (nb)
+    - AS OPEX / CONTACT AGENT in nb (unit cost €)
+    - All Customer Contacts in Customer Service (monthly avg.)
+    - Customer Service Global Productivity Index
+    - Customer Service Human Productivity
+    - FTE M
+    - FTE B
+    - FTE S
+    - TOTAL FTE
+  CORE 2027-2030:
+    kpis:
+    - Outstanding Collection Perimeter Av. (M€)
+    - 1st Unpaid entries (M€)
+    - 1st Unpaid entries / Outstanding (%)
+    - Cost of Risk (M€)
+    - Cost of Risk / Outstanding (%)
+    - 1st Unpaid Efficiency (Amount) (%)
+    - '% Efficiency 90 days*'
+    - Remarketing Mobility (%on 2nd Unpaid)
+    - RAS - Exit by pure payment (%)
+    - RAS - Transfer to Recovery / 1st unpaid (%)
+    - RAS - Cash Collected / Recovery stock (%)
+    - Selfcure Rate %
+    - Contactability - % RPC Unique
+    - Intensity of Treatment (nb)
+    - Digital Interactions (%)
+    - Collection VC OPEX (M€)
+    - 1st unpaid entries (nb)
+    - Coll. OPEX / 1st UNPAID in nb (unit cost €)
+    - Recovery VC OPEX (M€)
+    - Recovery - Cash collected (M€)
+    - Rec. OPEX / CASH COLLECTED
+    - Total Contacts/Solicitations in Collection Chain (monthly avg.)
+    - Collection Global Productivity Index
+    - Collection Human Productivity
+    - FTE M
+    - FTE B
+    - FTE S
+    - TOTAL FTE
+    - Outstanding Total Bussines Av. (M€) - ILON
+    - FTE M
+    - FTE B
+    - FTE S
+    - TOTAL FTE
+  NPL SALES:
+    aliases:
+    - NPL_SALES
+    kpis:
+    - Transfert to Recovery (M€)
+    - NPL Sale (M€)
+    - o/w  Forward Flow
+    - o/w  Spot Sale
+    - NPL Sale Price (M€)
+    - o/w  Forward Flow
+    - o/w  Spot Sale
+    - NIBT impact
+    - o/w  Forward Flow
+    - o/w  Spot Sale
+    - Write off (M€ - excluding debt sale)
+    - Operational Recovery Stock (M€)
+    - Stage 3 (M€)
+    - Outstanding Av (M€)
+    - NPL Ratio (%)
+    - Shortfall (backstop + addendum + SREP)
+  KPI:
+    mode: identifiers
+    column_aliases:
+      '2024': Actual 2024
+      '2025': Actual 2025
+      F1 2026: Forecast 1 2026
+      F2 2026: Forecast 2 2026
+      F3 2026: Forecast 3 2026
+      B 2027: Budget 2027
+      B 2028: Budget 2028
+      B 2029: Budget 2029
+      B 2030: Budget 2030
+  # NPL SALES2:
+  #   aliases:
+  #   - NPL_SALES2
+  #   required: false
+  #   kpis: []
+  # CREDIT BUREAU:
+  #   aliases:
+  #   - CREDIT_BUREAU
+  #   required: false
+  #   kpis: []
+  # MBS (OPEX):
+  #   aliases:
+  #   - MBS OPEX
+  #   - MBS_OPEX
+  #   required: false
+  #   kpis: []
+  # PROCUREMENT:
+  #   required: false
+  #   kpis: []
